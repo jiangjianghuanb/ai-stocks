@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "A-share Stock Analyzer",
+  "version": "1.0",
+  "description": "Displays relevant A-share stocks in a popup",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://hq.sinajs.cn/*"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
